@@ -1,0 +1,33 @@
+{
+  "configurations" : [
+    {
+      "id" : "35284E0C-DE8B-4B48-81F0-DB29E4A66E09",
+      "name" : "Test Scheme Action",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "codeCoverage" : {
+      "targets" : [
+        {
+          "containerPath" : "container:",
+          "identifier" : "Railengine",
+          "name" : "Railengine"
+        }
+      ]
+    },
+    "performanceAntipatternCheckerEnabled" : true
+  },
+  "testTargets" : [
+    {
+      "target" : {
+        "containerPath" : "container:",
+        "identifier" : "RailengineTests",
+        "name" : "RailengineTests"
+      }
+    }
+  ],
+  "version" : 1
+}
