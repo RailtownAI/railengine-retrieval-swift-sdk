@@ -2,7 +2,7 @@
 //  SearchIndexTests.swift
 //  Railengine
 //
-//  Created by Fabricio Sperotto Sffair on 15/03/26.
+
 //
 
 import Testing
