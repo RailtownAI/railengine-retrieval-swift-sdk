@@ -22,13 +22,29 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v6
 
-      - name: Set up Swift
-        uses: swift-actions/setup-swift@v2.4.0
-        with:
-          swift-version: "6.2"
+      - name: Record Swift toolchain
+        run: |
+          {
+            echo "## Toolchain"
+            echo '```'
+            swift --version
+            echo '```'
+          } >> "$GITHUB_STEP_SUMMARY"
 
       - name: Build
         run: swift build
 
       - name: Test
-        run: swift test
+        run: swift test --parallel --xunit-output=test-results.xml
+
+      - name: Publish test report
+        uses: dorny/test-reporter@v2
+        if: always()
+        with:
+          name: Swift Tests
+          path: test-results*.xml
+          reporter: swift-xunit
+          report-title: Railengine test results
+          badge-title: tests
+          use-actions-summary: true
+          fail-on-error: true
